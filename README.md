@@ -1,5 +1,7 @@
 # LLM Streaming Service
 
+[![CI](https://github.com/aloong-planet/llm-streaming-service/actions/workflows/ci.yml/badge.svg)](https://github.com/aloong-planet/llm-streaming-service/actions/workflows/ci.yml)
+
 ## Overview
 
 This service provides a robust chat interface powered by Azure OpenAI's GPT models, featuring real-time streaming responses and persistent conversation management. It's designed for applications requiring interactive AI chat capabilities with context awareness.
@@ -80,6 +82,31 @@ max_conversation_pairs = 50
 temperature = 0.7
 model = "gpt-4"  # Overridden by AZURE_OPENAI_DEPLOYMENT_NAME if set
 ```
+
+## Development
+
+### CI/CD Pipeline
+
+This project uses GitHub Actions for continuous integration. The CI pipeline includes:
+
+- **Type Checking**: Validates TypeScript types
+- **Unit Tests**: Runs the test suite with Jest
+- **Code Coverage**: Generates and uploads test coverage reports
+- **Docker Build**: Verifies Docker image builds successfully
+
+The CI workflow runs on:
+- Every push to the `main` branch
+- Every pull request targeting the `main` branch
+
+You can view the CI status and test results in the [Actions tab](https://github.com/aloong-planet/llm-streaming-service/actions).
+
+### Required Secrets
+
+For the CI pipeline to work, you need to set up the following secrets in your GitHub repository:
+
+- `AZURE_OPENAI_API_KEY`: Your Azure OpenAI API key
+- `AZURE_OPENAI_ENDPOINT`: Your Azure OpenAI endpoint URL
+- `AZURE_OPENAI_DEPLOYMENT_NAME`: Your Azure OpenAI deployment name
 
 ## Running the Service
 

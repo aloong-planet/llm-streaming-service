@@ -60,6 +60,12 @@ test-coverage:
 	@echo "Running tests with coverage..."
 	@npm test -- --coverage
 
+# Generate Swagger documentation
+swagger:
+	@echo "Generating Swagger documentation..."
+	@npm run build
+	@npm run docs:generate
+
 # Database commands
 db-shell:
 	@echo "Opening SQLite shell..."
@@ -74,4 +80,4 @@ db-schema:
 	@sqlite3 data/chat.db ".schema"
 
 # Phony targets
-.PHONY: all clean build run dev stop push ls test test-watch test-coverage db-shell db-tables db-schema
+.PHONY: all clean build run dev stop push ls test test-watch test-coverage swagger db-shell db-tables db-schema

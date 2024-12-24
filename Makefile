@@ -1,5 +1,5 @@
 # Project configuration
-PROJECT_NAME = aloong-ai
+PROJECT_NAME = llm-streaming-service
 PLATFORM = linux/amd64
 TAG ?= latest
 

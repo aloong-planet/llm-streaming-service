@@ -279,14 +279,6 @@ npm run build
    git push origin feature/your-feature
    ```
 
-## Support and Resources
-
-- Azure OpenAI Documentation: [Link]
-- Prisma Documentation: [Link]
-- Express.js Documentation: [Link]
-- File Issues: [Link to Issues]
-- Contributing Guide: [Link to CONTRIBUTING.md]
-
 ## License
 [MIT License](LICENSE)
 

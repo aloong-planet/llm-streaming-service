@@ -15,7 +15,7 @@ interface LoggingConfig {
     level: string;
 }
 
-interface Config {
+export interface Config {
     chat: ChatConfig;
     openai: OpenAIConfig;
     logging: LoggingConfig;
@@ -35,20 +35,33 @@ const defaultConfig: Config = {
     }
 };
 
+function mergeConfigs(base: Config, override: Partial<Config>): Config {
+    return {
+        chat: {
+            ...base.chat,
+            ...override.chat
+        },
+        openai: {
+            ...base.openai,
+            ...override.openai
+        },
+        logging: {
+            ...base.logging,
+            ...override.logging
+        }
+    };
+}
+
 function loadConfig(): Config {
     try {
         const configPath = process.env.CONFIG_PATH || path.join(process.cwd(), 'config', 'default.toml');
         const configFile = fs.readFileSync(configPath, 'utf-8');
-        const config = parse(configFile) as Config;
-        return {
-            ...defaultConfig,
-            ...config
-        };
+        const parsedConfig = parse(configFile) as unknown as Partial<Config>;
+        return mergeConfigs(defaultConfig, parsedConfig);
     } catch (error) {
         console.warn('Failed to load config file, using default configuration:', error);
         return defaultConfig;
     }
 }
 
-const config = loadConfig();
-export default config;
+export const config = loadConfig();

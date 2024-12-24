@@ -5,7 +5,7 @@ import { ConfigurationError } from '../lib/errors/api-errors';
 import { OpenAIError } from '../lib/errors/openai-errors';
 import { z } from 'zod';
 import prisma from '../lib/prisma';
-import config from '../lib/config';
+import { config } from '../lib/config';
 
 // Default system message
 const DEFAULT_SYSTEM_MESSAGE = {

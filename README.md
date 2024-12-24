@@ -279,9 +279,6 @@ npm run build
    git push origin feature/your-feature
    ```
 
-## License
-[MIT License](LICENSE)
-
 ## Project Structure
 ```
 .
@@ -315,6 +312,8 @@ model Chat {
 ```
 
 ## API Endpoints
+
+[LLM Streaming Service API Documentation](https://aloong-planet.github.io/llm-streaming-service/)
 
 ### POST /api/chat
 Streams chat completions with conversation context.
@@ -350,3 +349,6 @@ Response: Server-Sent Events stream
 3. Write tests for new features
 4. Ensure all tests pass
 5. Submit a pull request
+
+## License
+[MIT License](LICENSE)
